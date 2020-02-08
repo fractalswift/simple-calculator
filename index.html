@@ -1,7 +1,9 @@
 
-<!-- TODO: split to seperate files so js linecount is easy -->
 
 <!-- TODO: clear out comments -->
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 <div class="container">
   <form name="calculator">
@@ -39,9 +41,12 @@
 
 <style>
   .container {
-    height: 500px;
-    width: 400px;
+    height: 50vw;
+    width: 90vw;
     padding: 3px;
+    border-color: pink;
+    border-style: solid;
+    border-width: 2px;
   }
 
   .calculator {
@@ -61,10 +66,11 @@
     border-color: blue;
     border-width: 2px;
     margin: 3px;
+
   }
 
   .screen input {
-    font-size: x-large;
+    font-size: 4vw;
   }
 
   .buttons {
@@ -84,10 +90,10 @@
     border-color: green;
     border-width: 2px;
     height: 50px;
-    width: 50px;
+    width: auto;
     margin: 3px;
     padding: 5px;
-    font-size: x-large;
+    font-size: 4vw;
   }
 
   .equalsbutton {
@@ -95,6 +101,7 @@
     border-color: green;
     border-width: 2px;
     height: 50px;
+    width: auto;
     margin: 3px;
     padding: 5px;
     grid-column: 3 / 5;
@@ -108,6 +115,7 @@
     height: 50px;
     width: 50px;
     margin: 3px;
+    width: auto;
     padding: 5px;
     font-size: large;
   }
@@ -120,6 +128,7 @@
     width: 50px;
     margin: 3px;
     padding: 5px;
+    width: auto;
     font-size: x-large;
   }
 
@@ -130,6 +139,7 @@
     height: 50px;
     width: 50px;
     margin: 3px;
+    width: auto;
     padding: 5px;
     font-size: x-large;
   }
