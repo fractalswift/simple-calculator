@@ -1,9 +1,10 @@
 
 
-<!-- TODO: exponential does not work yet -->
 <!-- TODO: use event listeners for the javascript instead of inline, then I'll know if it is 100 lines -->
-<!-- TODO: will need to add different class to = and c button so can add different function -->
+
+
 <!-- TODO: add alert or block for illegal operations -->
+<!-- TODO: add styling for non number buttons -->
 
 <!-- TODO: clear out comments -->
 
@@ -34,7 +35,7 @@
             <input type="button" class='button' name="divide" value="/" >
 
             <input type="button" class='clearbutton' name="clear" value="c">
-            <input type="button" class='button' name="expo" value="^" >
+            <input type="button" class='expobutton' name="expo" value="^" >
             <input type="button" class='sqrtbutton' name="sqrt" value="sqrt" >
 
             <input type="button" class='equalsbutton' name="equals" value="=" >
@@ -53,6 +54,9 @@
 
     const sqrtbutton = document.querySelector('input[name="sqrt"]')
 
+    const expobutton = document.querySelector('input[name="expo"]')
+
+
     const buttons = document.querySelectorAll('input[class="button"')
 
 
@@ -63,6 +67,9 @@
     equalsbutton.addEventListener('click', ()=> {calculator.input.value = eval(calculator.input.value)})
 
     sqrtbutton.addEventListener('click', ()=> {calculator.input.value = Math.sqrt(calculator.input.value)})
+
+    expobutton.addEventListener('click', ()=> {calculator.input.value += '**'})
+
 
 
 </script>
@@ -148,6 +155,19 @@ padding: 5px;
 
 
 .clearbutton {
+
+border-style: solid;
+border-color: green;
+border-width: 2px;
+height: 50px;
+width: 50px;
+margin: 3px;
+padding: 5px;
+
+
+}
+
+.expobutton {
 
 border-style: solid;
 border-color: green;
