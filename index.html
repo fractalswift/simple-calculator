@@ -56,7 +56,6 @@
 
     const expobutton = document.querySelector('input[name="expo"]')
 
-
     const buttons = document.querySelectorAll('input[class="button"')
 
 
@@ -64,9 +63,40 @@
 
     clearbutton.addEventListener('click', ()=> {calculator.input.value = ''})
 
-    equalsbutton.addEventListener('click', ()=> {calculator.input.value = eval(calculator.input.value)})
 
-    sqrtbutton.addEventListener('click', ()=> {calculator.input.value = Math.sqrt(calculator.input.value)})
+    equalsbutton.addEventListener('click', ()=> {
+        
+        output = eval(calculator.input.value)
+
+        if(isNaN(output)){
+
+            calculator.input.value = 'ILLEGAL OPERATION'
+        } else {
+
+            calculator.input.value = output
+        }});
+
+        
+
+
+
+    sqrtbutton.addEventListener('click', ()=> {
+        
+        output = Math.sqrt(calculator.input.value)
+        
+        if(isNaN(output)){
+
+            calculator.input.value = "ILLEGAL OPERATION"
+
+        } else {
+
+            calculator.input.value = output
+
+
+
+        }});
+       
+
 
     expobutton.addEventListener('click', ()=> {calculator.input.value += '**'})
 
@@ -100,6 +130,11 @@
         border-color: blue;
         border-width: 2px;
         margin: 3px;
+       
+    }
+
+    .screen input {
+        font-size:x-large;
     }
 
     .buttons {
@@ -112,6 +147,7 @@
         border-width: 2px;
         padding: 3px;
         margin: 3px;
+       
     }
 
     .button {
@@ -123,6 +159,7 @@
         width: 50px;
         margin: 3px;
         padding: 5px;
+        font-size:x-large;
 
 
     }
@@ -135,7 +172,8 @@ border-width: 2px;
 height: 50px;
 margin: 3px;
 padding: 5px;
-grid-column: 3 / 5
+grid-column: 3 / 5;
+font-size:x-large;
 
 
 }
@@ -149,6 +187,7 @@ height: 50px;
 width: 50px;
 margin: 3px;
 padding: 5px;
+font-size:large;
 
 
 }
@@ -163,6 +202,7 @@ height: 50px;
 width: 50px;
 margin: 3px;
 padding: 5px;
+font-size:x-large;
 
 
 }
@@ -176,6 +216,7 @@ height: 50px;
 width: 50px;
 margin: 3px;
 padding: 5px;
+font-size:x-large;
 
 
 }
