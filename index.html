@@ -1,7 +1,5 @@
-<!-- TODO: use event listeners for the javascript instead of inline, then I'll know if it is 100 lines -->
 
-<!-- TODO: add alert or block for illegal operations -->
-<!-- TODO: add styling for non number buttons -->
+<!-- TODO: split to seperate files so js linecount is easy -->
 
 <!-- TODO: clear out comments -->
 
@@ -35,59 +33,9 @@
   </form>
 </div>
 
-<script>
-  const clearbutton = document.querySelector('input[name="clear"]');
+<script src='calculator.js'></script>
+  
 
-  const equalsbutton = document.querySelector('input[name="equals"]');
-
-  const sqrtbutton = document.querySelector('input[name="sqrt"]');
-
-  const expobutton = document.querySelector('input[name="expo"]');
-
-  const buttons = document.querySelectorAll('input[class="button"');
-
-  buttons.forEach(button => {
-    button.addEventListener("click", () => {
-      calculator.input.value += button.value;
-    });
-  });
-
-  clearbutton.addEventListener("click", () => {
-    calculator.input.value = "";
-  });
-
-  equalsbutton.addEventListener("click", () => {
-    try {
-      output = eval(calculator.input.value);
-
-      if (isNaN(output)) {
-        calculator.input.value = "ILLEGAL OPERATION";
-      } else {
-        calculator.input.value = output;
-      }
-    } catch (err) {
-      calculator.input.value = "ERROR";
-    }
-  });
-
-  sqrtbutton.addEventListener("click", () => {
-    try {
-      output = Math.sqrt(calculator.input.value);
-
-      if (isNaN(output)) {
-        calculator.input.value = "ILLEGAL OPERATION";
-      } else {
-        calculator.input.value = output;
-      }
-    } catch (err) {
-      calculator.input.value = "ERROR";
-    }
-  });
-
-  expobutton.addEventListener("click", () => {
-    calculator.input.value += "**";
-  });
-</script>
 
 <style>
   .container {
