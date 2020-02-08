@@ -1,4 +1,4 @@
-// Get all the function buttons
+// Get all the special function buttons
 
 const clearbutton = document.querySelector('input[name="clear"]');
 

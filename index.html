@@ -1,6 +1,5 @@
 
 
-<!-- TODO: clear out comments -->
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -12,27 +11,31 @@
     </div>
 
     <div class="buttons">
-      <input type="button" class="button" name="one" value="1" />
-      <input type="button" class="button" name="two" value="2" />
-      <input type="button" class="button" name="three" value="3" />
-      <input type="button" class="button" name="plus" value="+" />
-      <input type="button" class="button" name="four" value="4" />
-      <input type="button" class="button" name="five" value="5" />
-      <input type="button" class="button" name="six" value="6" />
-      <input type="button" class="button" name="minus" value="-" />
-      <input type="button" class="button" name="seven" value="7" />
-      <input type="button" class="button" name="eight" value="8" />
-      <input type="button" class="button" name="nine" value="9" />
-      <input type="button" class="button" name="mutliply" value="*" />
-      <input type="button" class="button" name="zero" value="0" />
-      <input type="button" class="button" name="modulus" value="%" />
-      <input type="button" class="button" name="divide" value="/" />
+      <input type="button" class="button"  value="1" />
+      <input type="button" class="button"  value="2" />
+      <input type="button" class="button"  value="3" />
+      <input type="button" class="button"  value="+" />
+      <input type="button" class="button"  value="4" />
+      <input type="button" class="button"  value="5" />
+      <input type="button" class="button"  value="6" />
+      <input type="button" class="button"  value="-" />
+      <input type="button" class="button"  value="7" />
+      <input type="button" class="button"  value="8" />
+      <input type="button" class="button"  value="9" />
+      <input type="button" class="button"  value="*" />
+      <input type="button" class="button"  value="0" />
+      <input type="button" class="button"  value="%" />
+      <input type="button" class="button"  value="/" />
       <input type="button" class="clearbutton" name="clear" value="c" />
       <input type="button" class="expobutton" name="expo" value="^" />
       <input type="button" class="sqrtbutton" name="sqrt" value="sqrt" />
       <input type="button" class="equalsbutton" name="equals" value="=" />
     </div>
   </form>
+</div>
+
+<div class="description">
+    <p>Very simple calculator by Matthew Macklin, for unipart.com test... </p>
 </div>
 
 <script src='calculator.js'></script>
@@ -44,7 +47,7 @@
     height: 50vw;
     width: 90vw;
     padding: 3px;
-    border-color: pink;
+    border-color: black;
     border-style: solid;
     border-width: 2px;
   }
@@ -61,7 +64,7 @@
 
   .screen {
     grid-row: 1;
-    height: 50px;
+    height: 10vw;
     border-style: dashed;
     border-color: blue;
     border-width: 2px;
@@ -71,6 +74,9 @@
 
   .screen input {
     font-size: 4vw;
+    height: 10vw;
+    width: 100%;
+
   }
 
   .buttons {
