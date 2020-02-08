@@ -1,223 +1,188 @@
-
-
 <!-- TODO: use event listeners for the javascript instead of inline, then I'll know if it is 100 lines -->
-
 
 <!-- TODO: add alert or block for illegal operations -->
 <!-- TODO: add styling for non number buttons -->
 
 <!-- TODO: clear out comments -->
 
-
-<div class='container'>
-    <form name='calculator'>
-        <div class='screen'>
-            <input type="text" name="input" disabled>
-
-        </div>
-
-        <div class='buttons'>
-            <input type="button" class='button' name="one" value="1" >
-            <input type="button" class='button' name="two" value="2" >
-            <input type="button" class='button' name="three" value="3" >
-            <input type="button" class='button' name="plus" value="+" >
-            <input type="button" class='button' name="four" value="4" >
-            <input type="button" class='button' name="five" value="5">
-            <input type="button" class='button' name="six" value="6" >
-            <input type="button" class='button' name="minus" value="-" >
-            <input type="button" class='button' name="seven" value="7" >
-            <input type="button" class='button' name="eight" value="8" >
-            <input type="button" class='button' name="nine" value="9" >
-            <input type="button" class='button' name="mutliply" value="*">
-
-            <input type="button" class='button' name="zero" value="0" >
-            <input type="button" class='button' name="modulus" value="%">
-            <input type="button" class='button' name="divide" value="/" >
-
-            <input type="button" class='clearbutton' name="clear" value="c">
-            <input type="button" class='expobutton' name="expo" value="^" >
-            <input type="button" class='sqrtbutton' name="sqrt" value="sqrt" >
-
-            <input type="button" class='equalsbutton' name="equals" value="=" >
-
-
-        </div>
-
-        </form>
+<div class="container">
+  <form name="calculator">
+    <div class="screen">
+      <input type="text" name="input" disabled />
     </div>
 
+    <div class="buttons">
+      <input type="button" class="button" name="one" value="1" />
+      <input type="button" class="button" name="two" value="2" />
+      <input type="button" class="button" name="three" value="3" />
+      <input type="button" class="button" name="plus" value="+" />
+      <input type="button" class="button" name="four" value="4" />
+      <input type="button" class="button" name="five" value="5" />
+      <input type="button" class="button" name="six" value="6" />
+      <input type="button" class="button" name="minus" value="-" />
+      <input type="button" class="button" name="seven" value="7" />
+      <input type="button" class="button" name="eight" value="8" />
+      <input type="button" class="button" name="nine" value="9" />
+      <input type="button" class="button" name="mutliply" value="*" />
+      <input type="button" class="button" name="zero" value="0" />
+      <input type="button" class="button" name="modulus" value="%" />
+      <input type="button" class="button" name="divide" value="/" />
+      <input type="button" class="clearbutton" name="clear" value="c" />
+      <input type="button" class="expobutton" name="expo" value="^" />
+      <input type="button" class="sqrtbutton" name="sqrt" value="sqrt" />
+      <input type="button" class="equalsbutton" name="equals" value="=" />
+    </div>
+  </form>
+</div>
+
 <script>
+  const clearbutton = document.querySelector('input[name="clear"]');
 
-    const clearbutton = document.querySelector('input[name="clear"]')
+  const equalsbutton = document.querySelector('input[name="equals"]');
 
-    const equalsbutton = document.querySelector('input[name="equals"]')
+  const sqrtbutton = document.querySelector('input[name="sqrt"]');
 
-    const sqrtbutton = document.querySelector('input[name="sqrt"]')
+  const expobutton = document.querySelector('input[name="expo"]');
 
-    const expobutton = document.querySelector('input[name="expo"]')
+  const buttons = document.querySelectorAll('input[class="button"');
 
-    const buttons = document.querySelectorAll('input[class="button"')
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      calculator.input.value += button.value;
+    });
+  });
 
+  clearbutton.addEventListener("click", () => {
+    calculator.input.value = "";
+  });
 
-    buttons.forEach((button) => {button.addEventListener('click', ()=> {calculator.input.value +=  button.value} )})
+  equalsbutton.addEventListener("click", () => {
+    try {
+      output = eval(calculator.input.value);
 
-    clearbutton.addEventListener('click', ()=> {calculator.input.value = ''})
+      if (isNaN(output)) {
+        calculator.input.value = "ILLEGAL OPERATION";
+      } else {
+        calculator.input.value = output;
+      }
+    } catch (err) {
+      calculator.input.value = "ERROR";
+    }
+  });
 
+  sqrtbutton.addEventListener("click", () => {
+    try {
+      output = Math.sqrt(calculator.input.value);
 
-    equalsbutton.addEventListener('click', ()=> {
-        
-        output = eval(calculator.input.value)
+      if (isNaN(output)) {
+        calculator.input.value = "ILLEGAL OPERATION";
+      } else {
+        calculator.input.value = output;
+      }
+    } catch (err) {
+      calculator.input.value = "ERROR";
+    }
+  });
 
-        if(isNaN(output)){
-
-            calculator.input.value = 'ILLEGAL OPERATION'
-        } else {
-
-            calculator.input.value = output
-        }});
-
-        
-
-
-
-    sqrtbutton.addEventListener('click', ()=> {
-        
-        output = Math.sqrt(calculator.input.value)
-        
-        if(isNaN(output)){
-
-            calculator.input.value = "ILLEGAL OPERATION"
-
-        } else {
-
-            calculator.input.value = output
-
-
-
-        }});
-       
-
-
-    expobutton.addEventListener('click', ()=> {calculator.input.value += '**'})
-
-
-
+  expobutton.addEventListener("click", () => {
+    calculator.input.value += "**";
+  });
 </script>
 
 <style>
-    .container {
+  .container {
+    height: 500px;
+    width: 400px;
+    padding: 3px;
+  }
 
-        height: 500px;
-        width: 400px;
-        padding: 3px;
+  .calculator {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto;
+    border-color: black;
+    border-style: solid;
+    border-width: 2px;
+    padding: 3px;
+  }
 
-    }
+  .screen {
+    grid-row: 1;
+    height: 50px;
+    border-style: dashed;
+    border-color: blue;
+    border-width: 2px;
+    margin: 3px;
+  }
 
-    .calculator {
-        display: grid;
-        grid-template-columns: 100%;
-        grid-template-rows: auto auto;
-        border-color: black;
-        border-style: solid;
-        border-width: 2px;
-        padding: 3px;
-    }
+  .screen input {
+    font-size: x-large;
+  }
 
-    .screen {
-        grid-row: 1;
-        height: 50px;
-        border-style: dashed;
-        border-color: blue;
-        border-width: 2px;
-        margin: 3px;
-       
-    }
+  .buttons {
+    grid-row: 2;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto auto auto;
+    border-style: solid;
+    border-color: red;
+    border-width: 2px;
+    padding: 3px;
+    margin: 3px;
+  }
 
-    .screen input {
-        font-size:x-large;
-    }
+  .button {
+    border-style: solid;
+    border-color: green;
+    border-width: 2px;
+    height: 50px;
+    width: 50px;
+    margin: 3px;
+    padding: 5px;
+    font-size: x-large;
+  }
 
-    .buttons {
-        grid-row: 2;
-        display: grid;
-        grid-template-columns: auto auto auto auto;
-        grid-template-rows: auto auto auto auto;
-        border-style: solid;
-        border-color: red;
-        border-width: 2px;
-        padding: 3px;
-        margin: 3px;
-       
-    }
+  .equalsbutton {
+    border-style: solid;
+    border-color: green;
+    border-width: 2px;
+    height: 50px;
+    margin: 3px;
+    padding: 5px;
+    grid-column: 3 / 5;
+    font-size: x-large;
+  }
 
-    .button {
+  .sqrtbutton {
+    border-style: solid;
+    border-color: green;
+    border-width: 2px;
+    height: 50px;
+    width: 50px;
+    margin: 3px;
+    padding: 5px;
+    font-size: large;
+  }
 
-        border-style: solid;
-        border-color: green;
-        border-width: 2px;
-        height: 50px;
-        width: 50px;
-        margin: 3px;
-        padding: 5px;
-        font-size:x-large;
+  .clearbutton {
+    border-style: solid;
+    border-color: green;
+    border-width: 2px;
+    height: 50px;
+    width: 50px;
+    margin: 3px;
+    padding: 5px;
+    font-size: x-large;
+  }
 
-
-    }
-
-    .equalsbutton {
-
-border-style: solid;
-border-color: green;
-border-width: 2px;
-height: 50px;
-margin: 3px;
-padding: 5px;
-grid-column: 3 / 5;
-font-size:x-large;
-
-
-}
-
-.sqrtbutton {
-
-border-style: solid;
-border-color: green;
-border-width: 2px;
-height: 50px;
-width: 50px;
-margin: 3px;
-padding: 5px;
-font-size:large;
-
-
-}
-
-
-.clearbutton {
-
-border-style: solid;
-border-color: green;
-border-width: 2px;
-height: 50px;
-width: 50px;
-margin: 3px;
-padding: 5px;
-font-size:x-large;
-
-
-}
-
-.expobutton {
-
-border-style: solid;
-border-color: green;
-border-width: 2px;
-height: 50px;
-width: 50px;
-margin: 3px;
-padding: 5px;
-font-size:x-large;
-
-
-}
+  .expobutton {
+    border-style: solid;
+    border-color: green;
+    border-width: 2px;
+    height: 50px;
+    width: 50px;
+    margin: 3px;
+    padding: 5px;
+    font-size: x-large;
+  }
 </style>
