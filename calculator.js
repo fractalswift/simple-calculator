@@ -6,7 +6,7 @@ const equalsbutton = document.querySelector('input[name="equals"]');
 
 const sqrtbutton = document.querySelector('input[name="sqrt"]');
 
-const expobutton = document.querySelector('input[name="expo"]');
+const powerofbutton = document.querySelector('input[name="powerof"]');
 
 // Get all the number buttons
 
@@ -60,9 +60,9 @@ sqrtbutton.addEventListener("click", () => {
   }
 });
 
-// Eval can do exponential if you use ** but we want ^ as the button for the user, so we will just 
+// Eval can do power of if you use ** but we want ^ as the button for the user, so we will just 
 // insert ** if user presses the ^ button
 
-expobutton.addEventListener("click", () => {
+powerofbutton.addEventListener("click", () => {
   calculator.input.value += "**";
 });
