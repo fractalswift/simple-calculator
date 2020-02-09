@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head> </head>
+
+  <body></body>
+</html>
+
+<script>
+
+const showError = () => {
+
+    errorTitle = document.createElement('h1')
+    errorTitle.textContent = "ERROR"
+
+    errorPara = document.createElement('p')
+    errorPara.textContent = "There seems to be a problem with the API, please contact unipart."
+
+    document.body.appendChild(errorTitle);
+    document.body.appendChild(errorPara);
+}
+
+
+  const getJson = () => {
+
+
+   
+
+    fetch("https://api.github.com/users/unipartdigital")
+      .then(response => {
+        return response.json();
+      })
+      .then(myJson => {
+        console.log(myJson);
+        
+        
+   
+        data = myJson;
+        keys = Object.keys(data);
+
+        if (keys.length > 20) {
+
+        title = document.createElement("h1");
+
+        title.textContent = "Data received from Unipart:";
+
+        table = document.createElement("table");
+
+        table.style.borderColor = 'black'
+        table.style.borderWidth = '2px'
+        table.style.borderStyle = 'solid'
+
+
+        keys.forEach(element => {
+          r = table.insertRow();
+          r.textContent = element;
+
+
+          rc = r.insertCell();
+          rc.textContent = data[element];
+
+          rc.style.borderColor = 'blue'
+          rc.style.borderWidth = '2px'
+          rc.style.borderStyle = 'solid'
+
+          document.body.appendChild(title);
+          document.body.appendChild(table);
+
+
+
+        });
+
+    } else {showError()}
+
+      });
+
+      
+  };
+
+  getJson();
+</script>
